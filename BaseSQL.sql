@@ -92,19 +92,31 @@ where (first_name='Leslie' and age=44) or age>55;
 select * from employee_demographics
 where first_name like 'L%';
 
+-- Adding the group by function
+-- Group by the gender
 
+select * from employee_demographics;
 
+select gender
+from employee_demographics
+group by gender;
 
+select gender from employee_demographics
+group by gender;
 
+select gender,avg(age)
+from employee_demographics
+group by gender
+;
 
+select gender, avg(age),max(age)
+from employee_demographics
+group by gender
+;
 
-
-
-
-
-
-
-
+select gender,avg(age) as myage,max(age) as mazage
+from employee_demographics
+group by gender;
 
 
 
