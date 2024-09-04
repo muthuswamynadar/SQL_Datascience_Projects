@@ -43,6 +43,8 @@ values
 (6,'Donna','Meagle','Office Manager',60000,1),
 (9,'Ben','Wyatt','State Auditor',70000,6);
 
+-- Added another table in it 
+
 Create table parks_departments
 (
 	department_id int not null,
@@ -59,41 +61,64 @@ values
 (5,'library'),
 (6,'finance');
 
+-- using select queries
 
+select * from parks_departments;
+select * from employee_demographics;
+select * from employee_salary;
 
+-- using where clause
 
+select * from employee_salary
+where first_name='Leslie';
 
+select * from employee_demographics
+where birth_date>'1985-01-02' or gender ='male'
+;
 
+select * from employee_salary
+where salary >= 35000;
 
+select * from employee_demographics
+where gender != 'Female';
 
+-- adding multiple condition
 
+select * from employee_demographics
+where (first_name='Leslie' and age=44) or age>55;
 
+-- Like Statement
 
+select * from employee_demographics
+where first_name like 'L%';
 
+-- Adding the group by function
+-- Group by the gender
 
+select * from employee_demographics;
 
+select gender
+from employee_demographics
+group by gender;
 
+select gender from employee_demographics
+group by gender;
 
+select gender,avg(age)
+from employee_demographics
+group by gender
+;
 
+select gender, avg(age),max(age)
+from employee_demographics
+group by gender
+;
 
+select gender,avg(age) as myage,max(age) as mazage
+from employee_demographics
+group by gender;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Adding the 
 
 
 
