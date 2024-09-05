@@ -118,25 +118,38 @@ select gender,avg(age) as myage,max(age) as mazage
 from employee_demographics
 group by gender;
 
-Adding the 
+-- Adding the order by in SQL
 
+select * from employee_demographics
+order by first_name ASC;
 
+select * from employee_demographics
+order by 5,4;
 
+ -- Having vs where
 
+select gender,avg(age)
+from employee_demographics
+group by gender
+Having AVG(age) > 40;
 
+select occupation,AVG(salary)
+from employee_salary
+where occupation like '%manager'
+group by occupation
+Having avg(salary) >75000
 
+-- limit & aliasing 
 
+select * from 
+employee_demographics;
 
+select * from employee_demographics
+limit 4;
 
-
-
-
-
-
-
-
-
-
+select * from employee_demographics
+order by age desc
+limit 2;
 
 
 
