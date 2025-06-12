@@ -1,0 +1,36 @@
+
+
+USE SWAMY;
+
+select * from worldcity
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
