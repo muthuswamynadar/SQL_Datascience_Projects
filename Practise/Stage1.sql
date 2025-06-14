@@ -55,11 +55,12 @@ select id,namez from mine;
 
 select * from mine where id = 102;
 
+select * from mine order by id desc;
+select * from mine limit 3;
 
+select * from mine where price=2000;
 
-
-
-
+select * from mine where id>=103;
 
 
 
