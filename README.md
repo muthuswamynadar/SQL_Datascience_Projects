@@ -53,7 +53,7 @@ This project analyzes historical loan application data to extract insights relat
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/loan-approval-analysis-sql.git
+git clone https://github.com/muthuswamynadar/SQL_Datascience_Projects.git
 cd loan-approval-analysis-sql
 
 # Import the data into your SQL environment
