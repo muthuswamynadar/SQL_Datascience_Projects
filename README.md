@@ -21,27 +21,6 @@ This project analyzes historical loan application data to extract insights relat
 
 ---
 
-## 📂 Project Structure
-```plaintext
-loan-approval-analysis-sql/
-│
-├── data/
-│   └── loan_data.sql              # Sample data dump or insert statements
-│
-├── queries/
-│   ├── basic_exploration.sql      # Explore overall trends
-│   ├── approval_trends.sql        # Approval vs rejection analysis
-│   ├── income_impact.sql          # Income influence on approval
-│   ├── credit_analysis.sql        # Role of credit history
-│   └── high_risk_cases.sql        # Detect high-risk applications
-│
-├── docs/
-│   ├── er_diagram.png             # ER Diagram of dataset
-│   └── insights_summary.md        # Key observations and conclusions
-│
-└── README.md                 
----
-
 ## 🧠 Key Concepts Used
 
 - Basic SQL Queries
