@@ -45,9 +45,20 @@ from Products as C
 Right join Sales as S
 on C.product_id=S.product_id;
 
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    join_date DATE,
+    dept VARCHAR(50),
+    salary INT,
+    manager_id INT
+);
 
-
-
+INSERT INTO employees (emp_id, name, join_date, dept, salary, manager_id) VALUES
+(1, 'alice JOHNSON', '2022-01-10', 'HR', 50000, NULL),
+(2, 'BOB SMITH', '2023-02-15', 'Finance', NULL, 1),
+(3, 'john.doe', '2021-08-20', 'IT', 60000, 2),
+(4, 'sara O''connor', NULL, 'Finance', 55000, 1);
 
 
 
