@@ -143,7 +143,10 @@ INSERT INTO Orderx VALUES
 (202, 2, 1),
 (203, 1, 1);
 
-
+select P.product_name
+from Productz as P
+left join Orderx O on P.product_id=O.product_id
+where O.product_id is null;
 
 
 
