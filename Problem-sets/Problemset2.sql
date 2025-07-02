@@ -34,6 +34,7 @@ CREATE TABLE employees (
   department VARCHAR(50),
   salary INT
 );
+
 INSERT INTO employees VALUES
 (1, 'Alice', 'HR', 50000),
 (2, 'Bob', 'IT', 70000),
@@ -41,6 +42,25 @@ INSERT INTO employees VALUES
 (4, 'David', 'IT', 80000),
 (5, 'Eve', 'Finance', 75000);
 
+CREATE TABLE sales (
+  sale_id INT,
+  employee_id INT,
+  sale_amount INT,
+  sale_date DATE
+);
+
+INSERT INTO sales VALUES
+(1, 1, 3000, '2024-01-10'),
+(2, 2, 5000, '2024-01-11'),
+(3, 1, 2000, '2024-01-15'),
+(4, 3, 4000, '2024-01-18'),
+(5, 2, 3000, '2024-01-22');
+
+WITH sales_summary AS (
+  SELECT employee_id, SUM(sale_amount) AS total_sales
+  FROM sales
+  GROUP BY employee_id
+)
 
 
 
