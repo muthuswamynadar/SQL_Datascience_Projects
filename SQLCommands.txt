@@ -141,6 +141,262 @@ insert into courses values
 
 
 
+****************************************************** DML means inserting the values
+****************************************************** DQL means select query the values
+
+
+****************************************************** Limit & offset
+
+Limit means top 5
+Offset skip beginning
+
+select * from courses
+limit 12
+offset 5;
+
+
+****************************************************** Order by
+
+
+create database sort;
+
+use sort;
+create table courses
+(Course_id Char(6) unique, 
+Course_Name Varchar(40), 
+Domain Char(20),
+Students_Intake int, 
+Mode_of_Delivery Varchar(20),
+Faculty Varchar(30)); 
+
+select * from courses
+order by Course_id desc, Students_intake;
+
+insert into courses values
+("DS1001","Full Stack Data Science","Data Science",100,"Live","Saurabh"),
+("DA1001","Full Stack Data Analytics","Data Analytics",70,"Live","Saurabh"),
+("ML1001","Machine Learning Fundamentals","Machine Learning",170,"Hybrid","Subhash"),
+("DL1001","Deepth of Deep Learning","Deep Learning",120,"Recorded","Nalini");
+
+
+****************************************************** Where by
+
+use sort;
+
+
+select * from courses;
+
+select * from courses
+where Students_Intake>=100
+order by Students_Intake;
+
+-- using not equal to 
+
+select * from courses
+where Students_Intake <>100
+order by Students_Intake;
+
+****************************************************** Where by + Logical
+
+use sort;
+
+
+select * from courses;
+
+select * from courses
+where Students_Intake>=100
+order by Students_Intake;
+
+-- using not equal to 
+
+select * from courses
+where Students_Intake <>100
+order by Students_Intake;
+
+****************************************************** using the in operator
+
+select * from courses
+where course_name in ("Full Stack Data Science","Machine Learning Fundamentals");
+
+insert into courses values
+("DS121","Full Stack Data Science","Data Science",100,"Live","Saurabh"),
+("DS111","Full Stack Data Science","Data Science",100,"Live","Saurabh");
+
+****************************************************** using the between operator
+
+select * from courses
+where students_intake between 70 and 130;
+
+****************************************************** using the like operator
+
+
+use sort;
+
+select * from courses;
+
+select * from courses
+where course_name like "M%";
+
+select * from courses
+where course_name like "%s";
+
+****************************************************** Built in functions
+
+Aggregates funtions
+	Sum
+	Min
+	Max
+	Average
+	Count
+	Count Dist
+	Statistical
+	Other ( group by)
+
+
+select * from courses;
+
+select sum(students_intake) as mylevel, min(students_intake) as mins from courses;
+
+
+****************************************************** Group by
+
+
+select * from courses;
+
+select sum(students_intake) as mylevel, min(students_intake) as mins from courses;
+
+select domain, count(domain) asmydomain, count(distinct domain), round(avg(students_intake)) 
+from courses
+group by domain
+having count(domain) > 2;
+
+
+****************************************************** String Functions
+
+# String functions
+
+-- Concat
+-- Replace
+-- Left/Right
+-- Upper/Lower
+-- Substring
+-- TRim /LTrim /RTrinm
+-- Reverse
+-- Length 
+
+
+
+use sort;
+
+-- Using the concat
+
+select * from courses;
+select course_name,Domain, concat(Course_name," + ",Mode_of_Delivery) as fulldetails
+from courses;
+
+-- Using the Upper / Lower
+
+select upper(course_name) as lm,lower(course_name) as ls
+from courses;
+
+-- Using the replace
+
+select replace("Hello World","World","Mysql")as newo;
+
+-- Using the left / right
+
+select * from courses;
+
+select course_id, left(course_name,8) from courses;
+
+select course_id, right(course_name,8) from courses;
+
+-- using the substring
+select *,substring(course_name,1,7) as zz from courses;
+
+-- using the trim ,left trim & right trim
+select trim(concat("                        ","Swamy"));
+
+-- Using the reverse
+select * from courses;
+
+select reverse(course_name) as mycourse from courses;
+
+-- Using the length
+select length(course_name) as myleng from courses;
+
+
+****************************************************** Logical operations
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
