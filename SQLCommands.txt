@@ -328,37 +328,124 @@ select length(course_name) as myleng from courses;
 
 ****************************************************** Logical operations
 
+-- 1) If
+-- 2) Null-if
+-- 3) If null
+-- 4) Casc+ when
+-- 5) coalsce
+
+-- 1) IF
+
+use sort;
+
+select * from courses;
+
+select 
+	if(Max(Students_Intake) >= 100,"The RIght","Below Expected") as collegestatus,
+	course_name,count(students_intake) as lmr
+from courses
+group by course_name;
+
+-- 2) If null
+
+SELECT course_name, domain , 
+	ifnull(course_id) as nnz
+FROM courses;
+
+-- 3) Null-if
+
+SELECT course_name, domain , 
+	nullif(course_id) as nnz
+FROM courses;
 
 
+-- 4) Casc+ when
+select course_name,domain,students_intake,
+case
+	when students_intake <= 70 then "High"
+    when students_intake between 70 and 150 then "mid"
+    else "Very hight"
+end as pop_cat
+from courses;
+
+-- 5) coalesce
+select students_intake,coalesce(students_intake,3) as imi
+from courses;
 
 
+****************************************************** Date & Time Functions
+
+select current_date();
+
+select current_time();
+
+select current_timestamp() // Date+Time
+
+select date(datez) as  mydate,Time(mytime) as mytime
+from myworld;
 
 
+****************************************************** Windows functions
+
+-------> using the Row number
+
+use sort;
+
+Select * from courses;
+
+select course_name, course_id, row_number() over (partition by course_name order by course_id) as row_num
+from courses;
 
 
+select course_name, course_id, rank() over (partition by course_name order by course_id) as row_num
+, dense_rank() over (partition by course_name order by course_id) as Dense_num
+from courses;
 
 
+-------> using the Ntile
+
+## NTILE
+-- It divides into 4 category
+
+select * from courses;
+select *, ntile(5) over (order by Domain) as mydom from courses;
 
 
+## using the lead
+select *, lead(Domain,2) over (order by Domain) as mydom from courses;
 
 
+****************************************************** Numeric functions
+
+## Absolute functions
+	select abs(-32) as abs;
+
+## Ceil functions (next integer will return)
+	select ceil(3.3);
+
+## floor fucntion (always lower)
+	select floor(33.9);
+
+## Round Functions
+	select round(23.33333333333);
+
+## Mod functions (diveds 32 by 10 ) shows the remainder
+	select mod(32,10);
+	select mod (99,4);
+
+## Power functions
+	select power(3,2);
+
+## Exponenetial functions
+	select exp(3);
 
 
+****************************************************** Joins
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+-- 1) inner join
+-- 2) Left join
+-- 3) right join
+-- 4) Full join
 
 
 
