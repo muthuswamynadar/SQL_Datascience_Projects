@@ -28,10 +28,18 @@ INSERT INTO city VALUES
 select * from country;
 select * from city;
 
+SELECT city.city_name, country.country_name
+FROM city
+LEFT JOIN country ON city.country_id = country.country_id;
 
 
+select city.city_name,country.country_name
+from city
+left join country on city.country_id=country.country_id;
 
-
+SELECT city.city_name, country.country_name
+FROM city
+INNER JOIN country ON city.country_id = country.country_id;
 
 
 
