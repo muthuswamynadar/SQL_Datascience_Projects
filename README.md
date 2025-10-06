@@ -3,6 +3,9 @@
 
 Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
 
+![Pizza Data Analysis](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZmhiaXlicjY2OXQ2aGlzZzBpbjE4a2V6M3gycGNoeWVkM3N3OXZnbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GFKZLvfBiyrN6/giphy.gif)
+
+
 ## 📊 Project Overview
 This project explores pizza sales performance through structured SQL queries, uncovering trends in revenue, order patterns, and customer preferences.
 
