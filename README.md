@@ -1,6 +1,6 @@
 # 🍕 Pizza Sales SQL Analysis
 
-![Pizza GIF](https://media.giphy.com/media/7J9QK6h3SP8dG/giphy.gif)
+![Pizza Data Analysis](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJhYnlvZXIxdHIzN3FtdmVvOXQxOWpoNzR6ZHRmOXA4cWhvOXBrdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8UGoOaS6XBB68/giphy.gif)
 
 Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
 
@@ -30,7 +30,7 @@ This project explores pizza sales performance through structured SQL queries, un
 
 ## 🛠 Tools & Technologies
 - **SQL (MySQL / PostgreSQL / SQLite)**  
-- **Excel / Power BI** *(for optional visualization)*  
+- **Excel / Power BI** *(optional visualization)*  
 
 ## 🚀 Outcome
 Discover customer preferences, revenue drivers, and sales trends — insights that help optimize business decisions for a pizza store.
