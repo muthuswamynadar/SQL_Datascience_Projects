@@ -1,13 +1,6 @@
 
 # 🍕 Pizza Sales SQL Analysis
 
-<p align="right">
-  <img src="https://media.giphy.com/media/1BhjeYQF2ZVyo/giphy.gif" width="120" alt="Pizza Slice">
-</p>
-
-Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
-
-
 Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
 
 ## 📊 Project Overview
