@@ -1,6 +1,6 @@
 # 🍕 Pizza Sales SQL Analysis
 
-![Pizza Data Analysis](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJhYnlvZXIxdHIzN3FtdmVvOXQxOWpoNzR6ZHRmOXA4cWhvOXBrdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8UGoOaS6XBB68/giphy.gif)
+![Pizza Data Analysis]([https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDJhYnlvZXIxdHIzN3FtdmVvOXQxOWpoNzR6ZHRmOXA4cWhvOXBrdCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8UGoOaS6XBB68/giphy.gif](https://cdn.dribbble.com/userupload/24061654/file/original-fb6bb9b8919b32cb22f53dbc35976e82.gif))
 
 Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
 
