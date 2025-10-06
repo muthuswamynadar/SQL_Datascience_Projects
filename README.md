@@ -1,62 +1,41 @@
-# 🏦 Loan Approval Analysis — SQL Project
+# 🍕 Pizza Sales SQL Analysis
 
-This project analyzes historical loan application data to extract insights related to loan approvals, applicant demographics, credit history, and risk patterns using SQL.
+![Pizza GIF](https://media.giphy.com/media/7J9QK6h3SP8dG/giphy.gif)
 
----
+Analyze pizza shop sales data using SQL — from simple metrics to advanced business insights.
 
-## 📌 Objective
+## 📊 Project Overview
+This project explores pizza sales performance through structured SQL queries, uncovering trends in revenue, order patterns, and customer preferences.
 
-- Analyze loan application data to understand approval trends
-- Discover key attributes influencing loan status
-- Identify high-risk applications
-- Provide actionable insights for financial decision-making
+## 🧠 Key Objectives
 
----
+### 🔹 Basic
+- Retrieve total number of orders  
+- Calculate total revenue from pizza sales  
+- Identify highest-priced pizza  
+- Find most common pizza size  
+- List top 5 most ordered pizzas  
 
-## 🛠️ Tools & Technologies
+### 🔹 Intermediate
+- Total quantity ordered per pizza category  
+- Order distribution by hour of the day  
+- Category-wise pizza distribution  
+- Average pizzas sold per day  
+- Top 3 pizzas by revenue  
 
-- **Database**: MySQL / PostgreSQL / SQLite
-- **Language**: SQL
-- **Optional**: Excel / Python (for visualization)
+### 🔹 Advanced
+- Percentage contribution of each pizza to total revenue  
+- Cumulative revenue over time  
+- Top 3 pizzas by revenue within each category  
 
----
+## 🛠 Tools & Technologies
+- **SQL (MySQL / PostgreSQL / SQLite)**  
+- **Excel / Power BI** *(for optional visualization)*  
 
-## 🧠 Key Concepts Used
-
-- Basic SQL Queries
-- Filtering (`WHERE`, `LIKE`, `BETWEEN`)
-- Aggregations (`COUNT`, `AVG`, `SUM`)
-- `GROUP BY`, `HAVING`
-- Joins (if using multiple tables)
-- Subqueries and CTEs
-- CASE statements for derived columns
-
----
-
-## 📊 Sample Questions Answered
-
-- What percentage of loans are approved?
-- Do married applicants get approved more?
-- Is credit history a strong predictor of loan approval?
-- What's the average loan amount by education level?
-- Identify patterns among rejected applications.
+## 🚀 Outcome
+Discover customer preferences, revenue drivers, and sales trends — insights that help optimize business decisions for a pizza store.
 
 ---
 
-## 📝 Sample Insight
-
-> Applicants with a credit history have an 85% higher chance of getting their loan approved compared to those without a credit record.
-
----
-
-## ▶️ How to Run
-
-```bash
-# Clone the repository
-git clone https://github.com/muthuswamynadar/SQL_Datascience_Projects.git
-cd loan-approval-analysis-sql
-
-# Import the data into your SQL environment
-# Example for MySQL:
-mysql -u root -p < data/loan_data.sql
-
+**👨‍💻 Author:** [Muthuswamy Nadar](https://github.com/muthuswamynadar)  
+**🎯 Project Type:** SQL Data Analysis
