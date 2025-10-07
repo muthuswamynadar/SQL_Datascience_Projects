@@ -3,15 +3,11 @@
 ![Pizza Data Analysis](https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZmhiaXlicjY2OXQ2aGlzZzBpbjE4a2V6M3gycGNoeWVkM3N3OXZnbCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/GFKZLvfBiyrN6/giphy.gif)
 
 ## 📚 Project Summary
-Two SQL analysis projects bundled into one README:
 
 1. **Pizza Sales Analysis** — explores order and revenue trends for a pizza shop (basic → advanced SQL metrics).  
 2. **Zepto Product Analysis** — retail product inventory & pricing insights based on Zepto-style dataset (MRP, discounts, stock, weight, category).
 
-Both projects are designed to be run on **MySQL / PostgreSQL / SQLite** and include queries you can copy & run to produce business insights.
-
 ---
-
 ## 🍕 Pizza Sales Analysis — Short Description
 Analyze pizza shop sales data to understand customer behaviour, revenue drivers, and operational patterns.  
 The analysis progresses from simple KPIs (total orders, revenue, top pizzas) to time-series and contribution analysis  
@@ -37,10 +33,8 @@ Useful for menu optimization, promotions, and daily staffing decisions.
 - Percentage contribution of each pizza to total revenue  
 - Cumulative revenue over time  
 - Top 3 pizzas by revenue within each category  
-
 ---
-
-## 🛒 Zepto Product Analysis — Short Description
+## 🛒 Zepto Product Analysis 
 Analyze a grocery/e-commerce product catalogue to identify pricing/value patterns, inventory issues, and category-level metrics.  
 Ideal for **pricing strategy**, **inventory management**, and **category merchandising**.
 
