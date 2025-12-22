@@ -1,248 +1,61 @@
-/* =========================================================
-   📊 SQL DATA ANALYSIS PORTFOLIO
-   Projects Included:
-   1️⃣ Ola & Uber Ride Booking Analysis
-   2️⃣ Pizza Sales Analysis
-   3️⃣ Zepto Product Analysis
+# 📊 SQL Data Analysis Portfolio  
+### Ola–Uber | Pizza Sales | Zepto Product Analysis
 
-   Author: Muthuswamy
-   LinkedIn: https://www.linkedin.com/in/nadarmuthuswamy/
-   ========================================================= */
+A concise SQL portfolio showcasing **real-world business analysis**, strong SQL fundamentals, and practical problem-solving skills.
 
+---
 
-/* =========================================================
-   🚕 OLA & UBER RIDE BOOKING ANALYSIS
-   Dataset: bookings
-   ========================================================= */
+## 🚕 Ola & Uber Ride Booking Analysis (Primary)
+**Dataset:** Kaggle – Ola & Uber Ride Booking & Cancellation Data  
 
--- Preview data
-SELECT * FROM bookings;
+**Key Analysis:**
+- Total rides, customers, drivers & locations  
+- Completed vs cancelled vs no-show rides  
+- Cancellation percentage & success rate  
+- Customer vs driver cancellations  
+- Most common cancellation reasons  
 
--- Remove unnecessary column
-ALTER TABLE bookings
-DROP COLUMN `Vehicle Images`;
+**Business Value:**  
+Helps reduce cancellations, improve driver allocation, and enhance customer experience.
 
-/* -----------------------------
-   🔹 BASIC DATA UNDERSTANDING
-   ----------------------------- */
+---
 
--- 1. Total ride records
-SELECT COUNT(*) AS Total_Ride_Records
-FROM bookings;
+## 🍕 Pizza Sales Analysis
+Analyzed pizza shop sales data to identify **revenue drivers and customer behaviour**.
 
--- 2. Columns and data types
-DESCRIBE bookings;
+**Highlights:**
+- Total orders & revenue  
+- Top pizzas & most common sizes  
+- Hour-wise demand trends  
+- Revenue contribution & cumulative sales  
 
--- 3. Unique customers
-SELECT COUNT(DISTINCT Customer_ID) AS Unique_Customers
-FROM bookings;
+**Use Cases:** Menu optimization, promotions, staffing decisions.
 
--- 4. Unique drivers (Vehicle_Type as proxy)
-SELECT COUNT(DISTINCT Vehicle_Type) AS Unique_Drivers
-FROM bookings;
+---
 
--- 5. Unique pickup & drop locations
-SELECT
-    COUNT(DISTINCT pickup_location) AS Unique_Pickup_Locations,
-    COUNT(DISTINCT drop_location) AS Unique_Drop_Locations
-FROM bookings;
+## 🛒 Zepto Product SQL Analysis
+Retail product analysis focused on **pricing efficiency and inventory insights**.
 
-/* -----------------------------
-   🔹 BOOKING STATUS ANALYSIS
-   ----------------------------- */
+**Highlights:**
+- Best-value products by discount  
+- High-MRP out-of-stock items  
+- Category-wise estimated revenue  
+- Price per gram & inventory weight analysis  
 
--- 6. Completed, cancelled & no-show rides
-SELECT
-    SUM(CASE WHEN Booking_Status = 'Success' THEN 1 ELSE 0 END) AS Completed_Rides,
-    SUM(CASE WHEN Booking_Status = 'Canceled by Driver' THEN 1 ELSE 0 END) AS Cancelled_By_Driver,
-    SUM(CASE WHEN Booking_Status = 'Canceled by Customer' THEN 1 ELSE 0 END) AS Cancelled_By_Customer,
-    SUM(CASE WHEN Booking_Status = 'Driver Not Found' THEN 1 ELSE 0 END) AS No_Show_Rides
-FROM bookings;
+**Use Cases:** Pricing strategy, inventory planning, merchandising.
 
--- 7. Percentage of completed rides
-SELECT 
-    ROUND(
-        100 * SUM(CASE WHEN Booking_Status = 'Success' THEN 1 ELSE 0 END) / COUNT(*),
-        2
-    ) AS Completed_Ride_Percentage
-FROM bookings;
+---
 
--- 8. Percentage of cancelled rides
-SELECT 
-    ROUND(
-        100 *
-        (
-            SUM(CASE WHEN Booking_Status = 'Canceled by Driver' THEN 1 ELSE 0 END) +
-            SUM(CASE WHEN Booking_Status = 'Canceled by Customer' THEN 1 ELSE 0 END)
-        ) / COUNT(*),
-        2
-    ) AS Cancelled_Ride_Percentage
-FROM bookings;
+## 🛠️ Tools & Skills
+- SQL (Joins, Aggregations, CASE, Subqueries)
+- Business Analytics
+- Data Cleaning & Exploration
+- GitHub Version Control
 
--- 9. Customer vs Driver cancellations
-SELECT 
-    SUM(CASE WHEN Booking_Status = 'Canceled by Driver' THEN 1 ELSE 0 END) AS Cancelled_By_Driver,
-    SUM(CASE WHEN Booking_Status = 'Canceled by Customer' THEN 1 ELSE 0 END) AS Cancelled_By_Customer
-FROM bookings;
+---
 
--- 10. Most common cancellation reasons
-SELECT
-    CancellationReason,
-    COUNT(*) AS Total_Count
-FROM (
-    SELECT Canceled_Rides_by_Customer AS CancellationReason
-    FROM bookings
-    WHERE Canceled_Rides_by_Customer IS NOT NULL
+## 👤 Author
+**Muthuswamy** — Aspiring Data Analyst  
+🔗 LinkedIn: https://www.linkedin.com/in/nadarmuthuswamy/
 
-    UNION ALL
-
-    SELECT Canceled_Rides_by_Driver
-    FROM bookings
-    WHERE Canceled_Rides_by_Driver IS NOT NULL
-) t
-GROUP BY CancellationReason
-ORDER BY Total_Count DESC;
-
-
-
-/* =========================================================
-   🍕 PIZZA SALES ANALYSIS
-   Tables assumed:
-   orders, order_details, pizzas, pizza_types
-   ========================================================= */
-
--- 1. Total number of orders
-SELECT COUNT(*) AS Total_Orders
-FROM orders;
-
--- 2. Total revenue
-SELECT 
-    ROUND(SUM(od.quantity * p.price), 2) AS Total_Revenue
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id;
-
--- 3. Highest priced pizza
-SELECT 
-    pt.name, p.price
-FROM pizzas p
-JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
-ORDER BY p.price DESC
-LIMIT 1;
-
--- 4. Most common pizza size
-SELECT 
-    p.size, COUNT(*) AS Order_Count
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id
-GROUP BY p.size
-ORDER BY Order_Count DESC
-LIMIT 1;
-
--- 5. Top 5 most ordered pizzas
-SELECT 
-    pt.name, SUM(od.quantity) AS Total_Quantity
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id
-JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
-GROUP BY pt.name
-ORDER BY Total_Quantity DESC
-LIMIT 5;
-
--- 6. Hour-wise order distribution
-SELECT 
-    HOUR(o.order_time) AS Order_Hour,
-    COUNT(*) AS Total_Orders
-FROM orders o
-GROUP BY Order_Hour
-ORDER BY Order_Hour;
-
--- 7. Quantity sold per category
-SELECT 
-    pt.category, SUM(od.quantity) AS Total_Quantity
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id
-JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
-GROUP BY pt.category;
-
--- 8. Top 3 pizzas by revenue
-SELECT 
-    pt.name,
-    ROUND(SUM(od.quantity * p.price), 2) AS Revenue
-FROM order_details od
-JOIN pizzas p ON od.pizza_id = p.pizza_id
-JOIN pizza_types pt ON p.pizza_type_id = pt.pizza_type_id
-GROUP BY pt.name
-ORDER BY Revenue DESC
-LIMIT 3;
-
-
-
-/* =========================================================
-   🛒 ZEPTO PRODUCT ANALYSIS
-   Table assumed: products
-   ========================================================= */
-
--- 1. Top 10 best-value products by discount %
-SELECT 
-    product_name,
-    ROUND((mrp - selling_price) / mrp * 100, 2) AS Discount_Percentage
-FROM products
-ORDER BY Discount_Percentage DESC
-LIMIT 10;
-
--- 2. High MRP products that are out of stock
-SELECT 
-    product_name, mrp
-FROM products
-WHERE mrp > 500 AND stock = 0;
-
--- 3. Estimated revenue per category
-SELECT 
-    category,
-    ROUND(SUM(selling_price * stock), 2) AS Estimated_Revenue
-FROM products
-GROUP BY category;
-
--- 4. MRP > ₹500 and discount < 10%
-SELECT 
-    product_name, mrp, selling_price
-FROM products
-WHERE mrp > 500
-AND ((mrp - selling_price) / mrp * 100) < 10;
-
--- 5. Top 5 categories by average discount
-SELECT 
-    category,
-    ROUND(AVG((mrp - selling_price) / mrp * 100), 2) AS Avg_Discount
-FROM products
-GROUP BY category
-ORDER BY Avg_Discount DESC
-LIMIT 5;
-
--- 6. Best price per gram (products > 100g)
-SELECT 
-    product_name,
-    ROUND(selling_price / weight_in_grams, 4) AS Price_Per_Gram
-FROM products
-WHERE weight_in_grams > 100
-ORDER BY Price_Per_Gram;
-
--- 7. Product segmentation by weight
-SELECT 
-    product_name,
-    CASE 
-        WHEN weight_in_grams < 250 THEN 'Low'
-        WHEN weight_in_grams BETWEEN 250 AND 1000 THEN 'Medium'
-        ELSE 'Bulk'
-    END AS Weight_Category
-FROM products;
-
--- 8. Total inventory weight per category
-SELECT 
-    category,
-    SUM(weight_in_grams * stock) AS Total_Inventory_Weight
-FROM products
-GROUP BY category;
-
-
-/* ===================== END OF FILE ===================== */
+⭐ If you find this useful, please star the repository!
